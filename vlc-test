@@ -203,7 +203,6 @@
         "SubnetId": {"Ref": "AZ2privateSubnet2"}
       }
     },
-
     "routePrivate": {
       "Type": "AWS::EC2::Route",
       "Properties": {
