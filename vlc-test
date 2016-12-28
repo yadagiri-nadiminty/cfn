@@ -158,8 +158,6 @@
         "RouteTableId": {"Ref": "rtbPublic"},
         "GatewayId": {"Ref": "inetGateway"}
       },
-      "DependsOn": "attachGateway"
-    },
     "subnetRouteTableAssociationAZ1privateSubnet1": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "DependsOn": ["rtbPublic", "AZ1privateSubnet1"],
