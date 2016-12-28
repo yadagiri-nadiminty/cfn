@@ -12,14 +12,13 @@
             "Tags" : [ {"Key" : "foo", "Value" : "bar"} ]
          }
       },
- {
+      
       "InternetGateway" : {
          "Type" : "AWS::EC2::InternetGateway",
          "Properties" : {
             "Tags" : [ {"Key" : "foo", "Value" : "bar"}]
          }
       },
-
    "NAT" : {
   "DependsOn" : "VPCGatewayAttach",
   "Type" : "AWS::EC2::NatGateway",
