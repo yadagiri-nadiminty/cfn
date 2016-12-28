@@ -53,7 +53,7 @@
       "DependsOn": ["vpc", "attachGateway"],
       "Properties": {
         "CidrBlock": {"Ref": "AZ1privateSubnet1Cidr"},
-        "AvailabilityZone": {"Ref" : "subnet1AZ"},
+        "AvailabilityZone": "us-east-1a",
         "VpcId": {"Ref": "vpc"},
         "Tags": [
           {
@@ -68,7 +68,7 @@
       "DependsOn": ["vpc", "attachGateway"],
       "Properties": {
         "CidrBlock": {"Ref": "AZ1privateSubnet2Cidr"},
-        "AvailabilityZone": {"Ref" : "subnet1AZ"},
+        "AvailabilityZone": "us-east-1a",
         "VpcId": {"Ref": "vpc"},
         "Tags": [
           {
@@ -83,7 +83,7 @@
       "DependsOn": ["vpc", "attachGateway"],
       "Properties": {
         "CidrBlock": {"Ref": "AZ2privateSubnet1Cidr"},
-        "AvailabilityZone": {"Ref" : "subnet2AZ"},
+        "AvailabilityZone": "us-east-1b",
         "VpcId": {"Ref": "vpc"},
         "Tags": [
           {
@@ -98,7 +98,7 @@
       "DependsOn": ["vpc", "attachGateway"],
       "Properties": {
         "CidrBlock": {"Ref": "AZ2privateSubnet2Cidr"},
-        "AvailabilityZone": {"Ref" : "subnet2AZ"},
+        "AvailabilityZone": "us-east-1b",
         "VpcId": {"Ref": "vpc"},
         "Tags": [
           {
