@@ -57,4 +57,13 @@
             "AvailabilityZone" : "us-east-1a",
             "Tags" : [ { "Key" : "foo", "Value" : "bar" } ]
          }
+      },    
+      "myNetworkAcl" : {
+         "Type" : "AWS::EC2::NetworkAcl",
+         "Properties" : {
+            "VpcId" : { "Ref" : "myVPC" },
+            "Tags" : [ { "Key" : "foo", "Value" : "bar" } ]
+         }
       }
+   }
+} 
