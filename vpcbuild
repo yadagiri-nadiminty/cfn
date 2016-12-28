@@ -2,87 +2,36 @@
   "AWSTemplateFormatVersion" : "2010-09-09",
 
   "Description" : "VPC with three AZs"
-
-  "Parameters" : {
-    "KeyName" : {
-      "Description" : "Name of an existing EC2 KeyPair to enable SSH access to the bastion host",
-      "Type" : "String",
-      "MinLength": "1",
-      "MaxLength": "64",
-      "AllowedPattern" : "[-_ a-zA-Z0-9]*",
-      "ConstraintDescription" : "can contain only alphanumeric characters, spaces, dashes and underscores."
-    },
-
-    "BastionInstanceType" : {
-      "Description" : "Bastion instance type",
-      "Type" : "String",
-      "Default" : "t1.micro",
-      "AllowedValues" : [ "t1.micro","m1.small","m1.medium","m1.large"],
-      "ConstraintDescription" : "must be a valid and allowed EC2 instance type."
-    }
-  },
-
-  "Mappings" : {
-    "AWSInstanceType2Arch" : {
-      "t1.micro"    : { "Arch" : "64" },
-      "m1.small"    : { "Arch" : "64" },
-      "m1.medium"   : { "Arch" : "64" },
-      "m1.large"    : { "Arch" : "64" }
-    },
-
-    "AWSNATAMI" : {
-      "us-east-1"      : { "AMI" : "ami-c6699baf" },
-      "us-west-2"      : { "AMI" : "ami-52ff7262" },
-      "us-west-1"      : { "AMI" : "ami-3bcc9e7e" },
-      "eu-west-1"      : { "AMI" : "ami-0b5b6c7f" },
-      "ap-southeast-1" : { "AMI" : "ami-02eb9350" },
-      "ap-southeast-2" : { "AMI" : "ami-ab990e91" },
-      "ap-northeast-1" : { "AMI" : "ami-14d86d15" },
-      "sa-east-1"      : { "AMI" : "ami-0439e619" }
-    },
-
-    "AWSRegionArch2AMI" : {
-      "us-east-1"      : { "64" : "ami-0568456c" },
-      "us-west-2"      : { "64" : "ami-927613a2" },
-      "us-west-1"      : { "64" : "ami-c08dbc85" }
-    }
-  },
-
+  
   "Resources" : {
 
-    "VPC" : {
+    "ManagementVPC" : {
       "Type" : "AWS::EC2::VPC",
       "Properties" : {
-        "CidrBlock" : "10.0.0.0/16",
-        "Tags" : [
-          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
-          {"Key" : "Network", "Value" : "Public" }
-        ]
+        "CidrBlock" : "10.1.0.0 /16"
       }
     },
-
-    "PublicSubnet1" : {
+    
+    "PrivateSubnet1" : {
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
-        "VpcId" : { "Ref" : "VPC" },
-        "CidrBlock" : "10.0.0.0/24",
+        "VpcId" : { "Ref" : "ManagementVPC" },
+        "CidrBlock" : "10.1.1.0/24",
         "AvailabilityZone" : { "Fn::Select" : ["0", { "Fn::GetAZs" : { "Ref" : "AWS::Region" } }]},
         "Tags" : [
-          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
-          {"Key" : "Network", "Value" : "Public" }
+          {"Key" : "Network", "Value" : "Private" }
         ]
       }
     },
 
-    "PublicSubnet2" : {
+    "PrivateSubnet2" : {
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
-        "CidrBlock" : "10.0.2.0/24",
+        "CidrBlock" : "10.1.2.0/24",
         "AvailabilityZone" : { "Fn::Select" : ["1", { "Fn::GetAZs" : { "Ref" : "AWS::Region" } }]},
         "Tags" : [
-          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
-          {"Key" : "Network", "Value" : "Public" }
+          {"Key" : "Network", "Value" : "Private" }
         ]
       }
     },
