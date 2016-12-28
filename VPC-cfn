@@ -18,11 +18,9 @@
          "Properties" : {
             "Tags" : [ {"Key" : "foo", "Value" : "bar"}]
          }
-      }
-   }
-}
+      },
 
-"NAT" : {
+   "NAT" : {
   "DependsOn" : "VPCGatewayAttach",
   "Type" : "AWS::EC2::NatGateway",
   "Properties" : {
@@ -43,17 +41,11 @@
     "DestinationCidrBlock" : "0.0.0.0/0",
     "NatGatewayId" : { "Ref" : "NAT" }
   }
-}
-
-{
-   "AWSTemplateFormatVersion" : "2010-09-09",
-   "Resources" : {
-      "myRouteTable" : {
+},
+  "myRouteTable" : {
          "Type" : "AWS::EC2::RouteTable",
          "Properties" : {
             "VpcId" : { "Ref" : "myVPC" },
             "Tags" : [ { "Key" : "foo", "Value" : "bar" } ]
          }
-      }
-   }
-}
+      },
