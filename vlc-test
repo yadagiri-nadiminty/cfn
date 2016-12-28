@@ -120,6 +120,15 @@
         ]
       }
     },
+   "NAT" : {
+  "DependsOn" : "attachGateway",
+  "Type" : "AWS::EC2::NatGateway",
+  "Properties" : {
+    "AllocationId" : { "Fn::GetAtt" : ["EIP", "AllocationId"]},
+    "SubnetId" : { "Ref" : "Subnet"}
+  }
+},
+    
     "attachGateway": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
       "DependsOn": ["vpc", "inetGateway"],
