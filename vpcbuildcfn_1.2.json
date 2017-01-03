@@ -290,7 +290,7 @@
   {
         "DestinationCidrBlock": "0.0.0.0/0",
         "RouteTableId": {"Ref": "rtbPrivate"},
-        "NatGatewayId": "NAT"
+        "NatGatewayId": {"Ref": "NAT"}
       }
 }
 }
