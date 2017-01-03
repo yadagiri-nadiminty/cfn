@@ -1,4 +1,11 @@
-    "routePrivate": {
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "A VPC environment in two availability zones with NAT Gateway.",
+  "Parameters": 
+  {   
+  },
+    
+"routePrivate": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
