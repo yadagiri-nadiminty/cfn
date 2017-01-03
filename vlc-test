@@ -158,6 +158,7 @@
         "DestinationCidrBlock": "0.0.0.0/0",
         "RouteTableId": {"Ref": "rtbPublic"},
         "GatewayId": {"Ref": "inetGateway"}
+	}
       },
     "subnetRouteTableAssociationAZ1privateSubnet1": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
@@ -214,5 +215,3 @@
     }
   }
 }
-}
-
