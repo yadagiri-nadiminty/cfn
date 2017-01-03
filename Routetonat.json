@@ -4,10 +4,14 @@
   "Parameters": 
   {   
   },
-    
+ "Resources": 
+  {  
 "routePrivate": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
         "RouteTableId": {"Ref": "rtbPrivate"},
         "InstanceId": {"Ref": "natEc2Instance"}
+      }
+}
+}
