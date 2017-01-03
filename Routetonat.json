@@ -3,6 +3,11 @@
   "Description": " Adding route from private subnet to NAT Gateway",
   "Parameters": 
   {   
+    "rtbPrivate": {
+      "Description": "privateroutetable",
+      "Type": "String",
+      "Default": "10.1.0.0/16"
+    },
   },
  "Resources": 
   {  
