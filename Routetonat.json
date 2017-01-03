@@ -17,7 +17,7 @@
   {
         "DestinationCidrBlock": "0.0.0.0/0",
         "RouteTableId": {"Ref": "rtbPrivate"},
-        "InstanceId": "Ref": "nat-099af81d0be1d133f"
+        "InstanceId": "nat-099af81d0be1d133f"
       }
 }
 }
