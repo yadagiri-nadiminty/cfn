@@ -129,6 +129,12 @@
     "SubnetId" : { "Ref" : "Subnet"}
   }
 },
+"EIP" : {
+  "Type" : "AWS::EC2::EIP",
+  "Properties" : {
+    "Domain" : "vpc"
+  }
+},
     
     "attachGateway": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
