@@ -11,7 +11,7 @@
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
         "RouteTableId": {"Ref": "rtbPrivate"},
-        "InstanceId": {"Ref": "natEc2Instance"}
+        "InstanceId": {"Ref": "NAT"}
       }
 }
 }
